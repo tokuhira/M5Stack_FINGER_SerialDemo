@@ -13,7 +13,7 @@ Logs:
 Documents:
 - http://deegou.com/hardware/fpc1020/ => missing
 - https://www.shenzhen2u.com/Capacitive-Fingerprint-Sensor-FPC1020.html
-- https://github.com/m5stack/m5-docs/blob/master/docs/en/unit/finger.md
+- https://docs.m5stack.com/#/en/unit/finger#id=description
 - https://github.com/tokuhira/M5Stack_FINGER_SerialDemo
 
 Note:
