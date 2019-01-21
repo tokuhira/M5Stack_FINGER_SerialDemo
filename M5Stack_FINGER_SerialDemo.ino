@@ -7,8 +7,10 @@
 #include <M5Stack.h>
 #include "FPC1020.h"
 
-#define FINGER_UART 2        // UART for FINGER unit
+#define FINGER_UART    2     // UART for FINGER unit
 #define ID_INPUT_DELAY 1000  // Wait for incomming digits
+#define MAX_PICES      150   // Fingerprint recognition capacity
+#define ID_UPPER_LIMIT "149" // ID limit: 0 ~ 149
 
 extern unsigned char l_ucFPID;
 extern unsigned char rBuf[192];  //Receive return data
@@ -55,14 +57,14 @@ void loop() {
         MODE = 0;
         User_ID = 0;
 
-        Serial.println("Please input the new user ID (0 ~ 99).");
+        Serial.println("Please input the new user ID (0 ~ " ID_UPPER_LIMIT ").");
         while (Serial.available() <= 0);
         delay(ID_INPUT_DELAY);
         incomingNub = Serial.available();
         for (char i = incomingNub; i >= 1; i--) {
           User_ID = User_ID + (Serial.read() - 0x30) * pow(10, (i - 1));
         }
-        if (User_ID > 99) {
+        if (User_ID >= MAX_PICES) {
           Serial.print("Invalid User ID read: ");
           Serial.println( User_ID , DEC);
           break;
@@ -104,7 +106,7 @@ void loop() {
       case 3:   // Print all user ID
         MODE = 0;
         if (Finger.PrintUserID()) {
-          Serial.print("Number of Fingerprint User is:");
+          Serial.print("Number of Fingerprint User is: ");
           unsigned char UserNumb;
           UserNumb = (l_ucFPID - 2) / 3;
 
@@ -124,14 +126,14 @@ void loop() {
       case 4:   // Delete Assigned User ID
         MODE = 0;
         User_ID = 0;
-        Serial.println("Please input the user ID(0 ~ 99) you want to delecte.");
+        Serial.println("Please input the user ID (0 ~ " ID_UPPER_LIMIT ") you want to delete.");
         while (Serial.available() <= 0);
         delay(ID_INPUT_DELAY);
         incomingNub = Serial.available();
         for (char i = incomingNub; i >= 1; i--) {
           User_ID = User_ID + (Serial.read() - 0x30) * pow(10, (i - 1));
         }
-        if (User_ID > 99) {
+        if (User_ID >= MAX_PICES) {
           Serial.print("Invalid User ID read: ");
           Serial.println( User_ID , DEC);
           break;
