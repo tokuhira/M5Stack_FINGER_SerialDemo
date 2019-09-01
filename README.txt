@@ -14,6 +14,7 @@ Documents:
 - http://deegou.com/hardware/fpc1020/ => missing
 - https://www.shenzhen2u.com/Capacitive-Fingerprint-Sensor-FPC1020.html
 - https://docs.m5stack.com/#/en/unit/finger#id=description
+- https://www.shenzhen2u.com/doc/Module/Fingerprint/710-FPC1020_PB3_Product-Specification.pdf
 - https://github.com/m5stack/M5-Schematic/blob/master/Units/UNIT_FINGER.pdf
 - https://github.com/m5stack/M5-ProductExampleCodes/tree/master/Unit/Fingerprint
 - https://github.com/tokuhira/M5Stack_FINGER_SerialDemo
