@@ -24,4 +24,5 @@ Note:
   Since it is not a robust code, I just uploaded the code for UNIT's healthness check.
 
 Todo:
-- Looking for the datasheet of the unit.
+- Making the UI to run without debug serial connection.
+- Looking for the datasheet of the unit in English or Japanese.
